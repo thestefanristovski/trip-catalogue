@@ -1,0 +1,15 @@
+S
+Lyon
+Bordeaux
+Train
+C
+2
+Lyon
+Marseille
+Bateau
+Paris
+Avion
+S
+Lyon
+Paris
+Auto

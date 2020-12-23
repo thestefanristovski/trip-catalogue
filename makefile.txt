@@ -1,0 +1,23 @@
+CPPFLAGS= -ansi -pedantic -Wall -std=c++11 -g
+.PHONY: clean
+
+demo: Trajet.o Simple.o Complexe.o Catalog.o main.o
+	g++ -o demo Trajet.o Simple.o Complexe.o Catalog.o main.o -lm
+
+main.o: main.cpp Catalog.h
+	g++ -c main.cpp $(CPPFLAGS)
+
+Trajet.o: Trajet.cpp Trajet.h
+	g++ -c Trajet.cpp $(CPPFLAGS)
+
+Simple.o: Simple.cpp Simple.h Trajet.h
+	g++ -c Simple.cpp $(CPPFLAGS)
+
+Complexe.o: Complexe.cpp Complexe.h Trajet.h Simple.h
+	g++ -c Complexe.cpp $(CPPFLAGS)
+
+Catalog.o: Catalog.cpp Catalog.h Trajet.h Simple.h Complexe.h
+	g++ -c Catalog.cpp $(CPPFLAGS)
+
+clean:
+	rm -f Trajet.o Simple.o Complexe.o Catalog.o main.o
